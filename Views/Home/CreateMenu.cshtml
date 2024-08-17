@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Menü Oluştur";
+}
+@model Menu
+<form asp-controller="Home"  asp-action="CreateMenu" method="post" class="m-4" style="display: flex;flex-direction: column;justify-content: center;">
+
+    <div class="m-4">
+        <label asp-for="@Model.MenuName">Menu Adı : </label>
+        <input type="text" asp-for="@Model.MenuName" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary m-4">
+        Oluştur
+    </button>
+
+</form>
