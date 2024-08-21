@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"]="Menü Düzenleme";
+}
+@model List<Menu>
+<form asp-controller="Home" asp-action="EditMenu" method="post" style="display: flex;flex-direction: column;justify-content: center;margin-top: 1rem;">
+    <label for="MenuId">Menü Adı</label>
+    <select name="MenuId" id="" class="form-control" required>
+        @foreach(var i in Model){
+            <option value="@i.MenuId">@i.MenuName</option>
+        }
+    </select>
+    <label for="ProductName">Ürün Adı : </label>
+    <input type="text" name="ProductName" class="form-control" id="">
+    <label for="ProductPrice">Ürün Fiyatı : </label>
+    <input type="number" name="ProductPrice" class="form-control" id="">
+    <label for="ProductCategory">Ürün Kategorisi</label>
+    <input type="text" name="ProductCategory" class="form-control" id="">
+
+    <button type="submit" class="btn btn-dark m-5">Ürün Ekle</button>
+</form>

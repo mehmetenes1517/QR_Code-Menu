@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div class="text-center">
+    @if(User.Identity.Name==null){
+        <h1 class="display-4">Hoşgeldiniz</h1>
+        <p>QR kod menü oluşturmak için <a asp-controller="Home" asp-action="Login">giriş yapınız</a> veya <a asp-controller="Home" asp-action="Signup">hesap oluşturunuz</a></p>
+    }else{
+        <h1 class="display-4">Merhaba @ViewData["Name"]</h1>
+
+        <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+            <a asp-controller="Home" asp-action="CreateMenu" style="width: 400px;">
+            <div class="p-5" style="border: solid 1px black;border-radius: 1rem; margin: 1rem;">
+                <img src="~/img/create.png"  style="width: 200px;height: 200px;">
+                <h5 style="text-align: center;text-decoration: solid;color: black;">QR kod menü oluştur</h5>
+            </div>
+            </a>
+            <a asp-controller="Home" asp-action="ViewMenu" style="width: 400px;">
+                <div class="p-5" style="border: solid 1px black;border-radius: 1rem;margin: 1rem;">
+                    <img src="~/img/view.png"  style="width: 200px;height: 200px;">
+                    <h5 style="text-align: center;text-decoration: solid;color: black;">QR kod menüleri görüntüle</h5>
+                </div>
+            </a>
+            <a asp-controller="Home" asp-action="EditMenu" style="width: 400px;">
+                <div class="p-5" style="border: solid 1px black;border-radius: 1rem;margin: 1rem;">
+                    <img src="~/img/edit.png" style="width: 200px;height: 200px;">
+                    <h5 style="text-align: center;text-decoration: solid;color: black;">QR kod menülerine Ürün Ekle</h5>
+                </div>
+            </a>
+        </div>
+
+
+    }
+</div>

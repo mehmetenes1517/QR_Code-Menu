@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Menüleri Görüntüle";
+}
+
+@model List<Menu>
+<nav style="display: flex;flex-direction: column;justify-content: center;border:1px gray solid;text-align: center;" class="m-2">
+    Sahip Olduğunuz Menüler
+    @foreach(var i in Model){
+        <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 3px;">
+            <div>@i.MenuName</div>
+            <div style="display: flex;flex-direction: row;">
+                <form  asp-controller="Menu" asp-action="Index" method="get">
+                <button class="btn btn-primary m-1" asp-controller="Menu" asp-action="Index" asp-route-id="@i.MenuId">Görüntüle</button>
+                </form>
+                @{
+                    int negative=@i.MenuId*-1;
+                }
+                <form asp-controller="Home" asp-action="ViewMenu" method="post">
+                <button class="btn btn-danger m-1" asp-route-id="@negative" >Sil</button>
+                </form>
+            </div>
+        </div>
+    }
+
+</nav>
